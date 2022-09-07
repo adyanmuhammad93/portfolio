@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+{% capture content %}
+  {% include molecules/offcanvas.html %}
+  {% include molecules/navbar.html %}
+  {{ content }}
+{% endcapture %}
+{% include 
+  molecules/container.html
+  content=content
+%}
+
+{% include organisms/portfolio/footer.html %}

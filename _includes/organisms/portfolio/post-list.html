@@ -1,0 +1,9 @@
+{% for post in site.posts %}
+<div class="col-span sm:col-span-3">
+  {% include
+    molecules/card.html
+    title=post.title
+    text=post.short_desc
+  %}
+</div>
+{% endfor %}

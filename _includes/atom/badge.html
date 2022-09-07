@@ -1,0 +1,18 @@
+<div 
+  class="
+    px-2 
+    py-1 
+    bg-green-300
+    rounded-full
+    font-bold
+    {% if include.size == "big" %}
+    text-base
+    {% else if include.size == "small" %}
+    text-xs
+    {% else %}
+    text-sm
+    {% endif %}
+  "
+  >
+  {{ include.text }}
+</div>

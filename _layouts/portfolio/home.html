@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+{% include organisms/portfolio/header.html %}
+
+{% capture post %}
+{% for post in site.posts %}
+<div class="col-span sm:col-span-3">
+  {% include
+    molecules/card.html
+    title=post.title
+    text=post.short_desc
+  %}
+</div>
+{% endfor %}
+{% endcapture %}
+{% include 
+  organisms/portfolio/featured.html 
+  title="Featured Post"
+  content=post 
+%}
+
+{% capture pro %}
+{% for project in site.projects %}
+<div class="col-span sm:col-span-3">
+  {% include
+    molecules/card-project.html
+    title=project.name
+    year=project.year
+    text=project.content
+  %}
+</div>
+{% endfor %}
+{% endcapture %}
+{% include 
+  organisms/portfolio/featured.html 
+  title="Latest Project" 
+  content=pro
+%}
+
+{% include organisms/portfolio/footer.html %}

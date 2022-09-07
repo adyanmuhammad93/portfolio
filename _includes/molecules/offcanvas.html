@@ -1,0 +1,36 @@
+<!-- Offcanvas -->
+<div 
+  id="offcanvas" 
+  class="
+    hidden
+    sm:hidden 
+    absolute top-20 right-4 
+    px-4 py-4 
+    bg-slate-900 dark:bg-slate-100 
+    rounded 
+    shadow
+  "
+  >
+  <!-- Nav -->
+  <ul class="flex flex-col items-end text-xl">
+    {% for nav in site.data.nav limit:4 %}
+    <li>
+      {% include 
+        atom/a.html 
+        text=nav.name 
+        url=nav.url 
+      %}
+    </li>
+    {% endfor %}
+
+    {% for nav in site.data.nav offset:4 %}
+    <li>
+      {% include 
+        atom/a-blank.html 
+        text=nav.name 
+        url=nav.url 
+      %}
+    </li>
+    {% endfor %}
+  </ul>
+</div> 

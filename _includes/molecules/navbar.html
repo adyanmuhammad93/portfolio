@@ -1,0 +1,44 @@
+<!-- Navbar -->
+<div class="col-span-1 sm:col-span-12">
+  <div class="flex justify-between items-center space-x-4 py-4">
+    <!-- Nav -->
+    <ul class="flex items-center space-x-4">
+      {% for nav in site.data.nav limit:1 %}
+      <li>
+        {% include 
+          atom/a.html
+          text=nav.name
+          url=nav.url
+          logo="true" 
+        %}
+      </li>
+      {% endfor %}
+
+      {% for nav in site.data.nav offset:1 limit:3 %}
+      <li class="hidden sm:block">
+        {% include 
+          atom/a.html 
+          text=nav.name 
+          url=nav.url 
+        %}
+      </li>
+      {% endfor %}
+
+      {% for nav in site.data.nav offset:4 %}
+      <li class="hidden sm:block">
+        {% include 
+          atom/a-blank.html 
+          text=nav.name 
+          url=nav.url 
+        %}
+      </li>
+      {% endfor %}
+    </ul>
+    
+    <!-- Dark Mode and Hamburger Menu -->
+    <div class="flex items-center space-x-4">
+      <span id="switch" class="bg-blue-300 p-3 w-12 rounded-full"></span>
+      <span id="switch-2" class="sm:hidden bg-red-300 p-3 w-12 rounded-full"></span>
+    </div>
+  </div>
+</div>

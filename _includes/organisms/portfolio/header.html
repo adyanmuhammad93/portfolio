@@ -1,0 +1,14 @@
+{% include molecules/alert.html %}
+{% include molecules/offcanvas.html %}
+
+{% capture content %}
+
+{% include molecules/navbar.html %}
+{% include molecules/hero.html %}
+
+{% endcapture %}
+
+{% include 
+  molecules/container.html
+  content=content
+%}
