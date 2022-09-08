@@ -12,10 +12,11 @@
     %}
     {% endfor %}
   </div>
-  {% capture title %}{{ include.title }}{% endcapture %}
-  {% include 
-    atom/h3.html
-    text=title  
-  %}
+  <a href="{{ include.url }}" target="_blank" rel="noopener noreferrer">
+    {% include 
+      atom/h3.html
+      text=include.title  
+    %}
+  </a>
   <p>{{ include.text }}</p>
  </div>
