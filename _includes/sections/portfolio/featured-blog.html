@@ -1,0 +1,56 @@
+<div class="col-span-1 sm:col-span-12">
+  <div class="flex justify-between">
+    <h3 class="mb-0">Featured Blog</h3>
+    <a href="/blog/" target="_blank" rel="noopener noreferrer">
+      <h3 class="mb-0 text-lg flex items-center space-x-2">
+        <span>See all</span> 
+        <span class="material-symbols-outlined">
+          arrow_circle_right
+        </span>
+      </h3>
+    </a>
+  </div>
+</div>
+{% if site.posts.size != 0 %}
+{% for post in site.posts %}
+<div class="col-span-1 sm:col-span-3">
+  <div class="flex flex-col border border-2 border-black bg-white rounded-2xl overflow-hidden">
+    <img 
+     src="https://source.unsplash.com/UVE7VK15PHI/400x300" 
+     class="w-[100%] max-w-[400px] max-h-[300px] mb-0"
+   >
+   <div class="p-4">
+     <div class="flex space-x-2 mb-2">
+       {% for tag in post.tags %}
+       <div 
+        class="
+          px-2 
+          py-1 
+          bg-white
+          rounded-full
+          font-bold
+          border
+          border-black
+          text-xs
+        "
+        >
+        {{ tag }}
+      </div>
+       {% endfor %}
+     </div>
+     <a href="{{ post.url }}" target="_blank" rel="noopener noreferrer">
+       <h3 class="mb-0">{{ post.title }}</h3>
+     </a>
+     <p class="mb-0">{{ post.short_desc }}</p>
+   </div>
+  </div>
+</div>
+{% endfor %}
+{% else %}
+<div class="col-span-1 sm:col-span-12">
+  <h1 class="text-stone-300 font-normal">
+    I'm thinking about it right now, will be published some posts soon.<br />
+    I promise!
+  </h1>
+</div>
+{% endif %}

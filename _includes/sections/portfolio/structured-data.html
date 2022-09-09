@@ -1,0 +1,21 @@
+<!-- Structured Data -->
+<!-- 
+  Next: Include Image, 
+  write "Working with Images in Jekyll" or "Optimize Image in Jekyll" 
+-->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ page.title }}",
+    "datePublished": "{{ page.datePublished }}",
+    "dateModified": "{{ page.dateModified }}",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "{{ site.author }}",
+        "url": "{{ site.url }}"
+      }
+    ]
+  }
+</script>

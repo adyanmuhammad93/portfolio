@@ -1,42 +1,31 @@
----
-layout: default
----
-
-{% include organisms/portfolio/header.html %}
-
-{% capture post %}
-{% for post in site.posts %}
-<div class="col-span sm:col-span-3">
-  {% include
-    molecules/card.html
-    title=post.title
-    text=post.short_desc
-  %}
-</div>
-{% endfor %}
-{% endcapture %}
-{% include 
-  organisms/portfolio/featured.html 
-  title="Featured Post"
-  content=post 
-%}
-
-{% capture pro %}
-{% for project in site.projects %}
-<div class="col-span sm:col-span-3">
-  {% include
-    molecules/card-project.html
-    title=project.name
-    year=project.year
-    text=project.content
-  %}
-</div>
-{% endfor %}
-{% endcapture %}
-{% include 
-  organisms/portfolio/featured.html 
-  title="Latest Project" 
-  content=pro
-%}
-
-{% include organisms/portfolio/footer.html %}
+<!DOCTYPE html>
+<html id="site" lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    {% include sections/portfolio/head.html %}
+    {% include sections/portfolio/structured-data.html %}
+  </head>
+  <body class="bg-white dark:bg-stone-900 text-stone-900 dark:text-white">
+    <div class="mx-auto w-[100%] max-w-[1200px] p-4">
+      <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 gap-y-8">
+        {% include sections/portfolio/navbar.html %}
+        {% include sections/portfolio/offcanvas.html %}
+        {% include sections/portfolio/hero.html %}
+        {% include sections/portfolio/featured-blog.html %}
+        <div class="col-span-1 sm:col-span-12"></div>
+        {% include sections/portfolio/featured-work.html %}
+        {% include sections/portfolio/footer.html %}
+      </div>
+    </div>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        $("#switch-1").click(function() {
+          $("#site").toggleClass("dark");
+        });
+        $("#switch-2").click(function() {
+          $("#offcanvas").toggleClass("hidden");
+        });
+      });
+    </script>
+  </body> 
+</html>

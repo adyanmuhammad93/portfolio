@@ -2,9 +2,9 @@
   url: /
 - name: About
   url: /about/
-- name: Post
-  url: /post/
-- name: Project
-  url: /project/
+- name: Blog
+  url: /blog/
+- name: Work
+  url: /work/
 - name: Github
   url: https://github.com/adyanmuhammad93

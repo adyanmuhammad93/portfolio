@@ -1,0 +1,29 @@
+<div class="col-span-1 sm:col-span-12">
+  <div class="flex justify-between">
+    <h3 class="mb-0">Featured Work</h3>
+    <a href="/work/" target="_blank" rel="noopener noreferrer">
+      <h3 class="mb-0 text-lg flex items-center space-x-2">
+        <span>See all</span>
+        <span class="material-symbols-outlined"> 
+          arrow_circle_right
+        </span>
+      </h3>
+    </a>
+  </div>
+</div> 
+{% for project in site.projects %}
+<div class="col-span-1 sm:col-span-3">
+  <div class="flex flex-col p-4 bg-white dark:text-black border border-2 border-black rounded-2xl">
+    <div class="flex justify-between items-center space-x-2">
+      <span>{{ project.year }}</span>
+      <a class="github-button" href="{{ project.repo_url }}" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star buttons/github-buttons on GitHub">Star</a>
+    </div>
+    <h3>{{ project.name }}</h3>
+    {{- project.content | markdownify -}}
+    <div class="flex items-center space-x-2">
+      <a href="{{ project.live_url }}" class="px-2 py-1 text-xs border border-black rounded-full" target="_blank" rel="noopener noreferrer">Demo</a>
+      <a href="{{ project.repo_url }}" class="px-2 py-1 text-xs border border-black rounded-full" target="_blank" rel="noopener noreferrer">Source</a>
+    </div>
+  </div>
+</div>
+{% endfor %}
